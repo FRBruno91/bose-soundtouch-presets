@@ -1,0 +1,1991 @@
+# Package Home Assistant pour les présélections Bose SoundTouch.
+# Copier ce fichier dans /config/packages/bose_soundtouch_presets.yaml
+# Voir le README pour activer les packages.
+#
+# input_text.bose_enceinte reste vide : la vue y enregistre l'identifiant
+# de l'enceinte SoundTouch Plus choisie. N'y mettez pas d'adresse IP.
+# Certaines stations d'exemple (flux http publics) sont préremplies.
+# Les anciens helpers bose_1_* à bose_6_* et la liste bose_cible ne font
+# pas partie de cette vue.
+
+shell_command:
+  bose_radio_search: 'python3 /config/bose_radio_search.py "{{ q }}"'
+
+input_text:
+  bose_enceinte:
+    name: Bose enceinte
+    min: 0
+    max: 255
+    mode: text
+    icon: mdi:speaker
+  bose_recherche:
+    name: Bose recherche
+    min: 0
+    max: 80
+    mode: text
+  bose_attente:
+    name: Bose attente
+    min: 0
+    max: 80
+    mode: text
+  bose_ajout_nom:
+    name: Bose ajout nom
+    min: 0
+    max: 80
+    mode: text
+  bose_ajout_url:
+    name: Bose ajout url
+    min: 0
+    max: 255
+    mode: text
+  bose_presel_message:
+    name: Bose presel message
+    min: 0
+    max: 255
+    mode: text
+  bose_touche_1:
+    name: Bose touche 1
+    min: 0
+    max: 2
+    mode: text
+    initial: "1"
+  bose_touche_2:
+    name: Bose touche 2
+    min: 0
+    max: 2
+    mode: text
+    initial: "2"
+  bose_touche_3:
+    name: Bose touche 3
+    min: 0
+    max: 2
+    mode: text
+    initial: "3"
+  bose_touche_4:
+    name: Bose touche 4
+    min: 0
+    max: 2
+    mode: text
+    initial: "4"
+  bose_touche_5:
+    name: Bose touche 5
+    min: 0
+    max: 2
+    mode: text
+    initial: "7"
+  bose_touche_6:
+    name: Bose touche 6
+    min: 0
+    max: 2
+    mode: text
+    initial: "8"
+  bose_lib_01_nom:
+    name: Bose lib 01 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: Europe 1
+  bose_lib_01_url:
+    name: Bose lib 01 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://europe1.lmn.fm/europe1.mp3
+  bose_lib_02_nom:
+    name: Bose lib 02 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: Radio Meuh
+  bose_lib_02_url:
+    name: Bose lib 02 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://radiomeuh.ice.infomaniak.ch/radiomeuh-128.mp3
+  bose_lib_03_nom:
+    name: Bose lib 03 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: Nostalgie
+  bose_lib_03_url:
+    name: Bose lib 03 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://streaming.nrjaudio.fm/oug7girb92oc
+  bose_lib_04_nom:
+    name: Bose lib 04 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: Nostalgie 60 70
+  bose_lib_04_url:
+    name: Bose lib 04 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://streaming.nrjaudio.fm/ougfkxrb92oc
+  bose_lib_05_nom:
+    name: Bose lib 05 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: FIP
+  bose_lib_05_url:
+    name: Bose lib 05 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://icecast.radiofrance.fr/fip-midfi.mp3
+  bose_lib_06_nom:
+    name: Bose lib 06 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: France Bleu Loire Océan
+  bose_lib_06_url:
+    name: Bose lib 06 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://icecast.radiofrance.fr/fbloireocean-midfi.mp3
+  bose_lib_07_nom:
+    name: Bose lib 07 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: 1.FM - Chillout Lounge Radio
+  bose_lib_07_url:
+    name: Bose lib 07 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://strm112.1.fm/chilloutlounge_mobile_mp3
+  bose_lib_08_nom:
+    name: Bose lib 08 nom
+    min: 0
+    max: 80
+    mode: text
+    initial: Jazz FM 104.6
+  bose_lib_08_url:
+    name: Bose lib 08 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://online.radiojazz.ua/RadioJazz
+  bose_lib_09_nom:
+    name: Bose lib 09 nom
+    min: 0
+    max: 80
+    mode: text
+  bose_lib_09_url:
+    name: Bose lib 09 url
+    min: 0
+    max: 255
+    mode: text
+  bose_lib_10_nom:
+    name: Bose lib 10 nom
+    min: 0
+    max: 80
+    mode: text
+  bose_lib_10_url:
+    name: Bose lib 10 url
+    min: 0
+    max: 255
+    mode: text
+  bose_lib_11_nom:
+    name: Bose lib 11 nom
+    min: 0
+    max: 80
+    mode: text
+  bose_lib_11_url:
+    name: Bose lib 11 url
+    min: 0
+    max: 255
+    mode: text
+  bose_lib_12_nom:
+    name: Bose lib 12 nom
+    min: 0
+    max: 80
+    mode: text
+  bose_lib_12_url:
+    name: Bose lib 12 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_01_meta:
+    name: Bose res 01 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_01_nom:
+    name: Bose res 01 nom
+    min: 0
+    max: 120
+    mode: text
+    initial: Jazz FM 104.6
+  bose_res_01_ok:
+    name: Bose res 01 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_01_url:
+    name: Bose res 01 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://online.radiojazz.ua/RadioJazz
+  bose_res_02_meta:
+    name: Bose res 02 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_02_nom:
+    name: Bose res 02 nom
+    min: 0
+    max: 120
+    mode: text
+    initial: Radio Jazz FM
+  bose_res_02_ok:
+    name: Bose res 02 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_02_url:
+    name: Bose res 02 url
+    min: 0
+    max: 255
+    mode: text
+    initial: http://online.radiojazz.ua/RadioJazz_Light
+  bose_res_03_meta:
+    name: Bose res 03 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_03_nom:
+    name: Bose res 03 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_03_ok:
+    name: Bose res 03 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_03_url:
+    name: Bose res 03 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_04_meta:
+    name: Bose res 04 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_04_nom:
+    name: Bose res 04 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_04_ok:
+    name: Bose res 04 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_04_url:
+    name: Bose res 04 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_05_meta:
+    name: Bose res 05 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_05_nom:
+    name: Bose res 05 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_05_ok:
+    name: Bose res 05 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_05_url:
+    name: Bose res 05 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_06_meta:
+    name: Bose res 06 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_06_nom:
+    name: Bose res 06 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_06_ok:
+    name: Bose res 06 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_06_url:
+    name: Bose res 06 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_07_meta:
+    name: Bose res 07 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_07_nom:
+    name: Bose res 07 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_07_ok:
+    name: Bose res 07 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_07_url:
+    name: Bose res 07 url
+    min: 0
+    max: 255
+    mode: text
+  bose_res_08_meta:
+    name: Bose res 08 meta
+    min: 0
+    max: 100
+    mode: text
+  bose_res_08_nom:
+    name: Bose res 08 nom
+    min: 0
+    max: 120
+    mode: text
+  bose_res_08_ok:
+    name: Bose res 08 ok
+    min: 0
+    max: 2
+    mode: text
+  bose_res_08_url:
+    name: Bose res 08 url
+    min: 0
+    max: 255
+    mode: text
+
+script:
+  bose_jouer_1:
+    alias: Bose jouer preset 1
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_1'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_1'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_1'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_1'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_jouer_2:
+    alias: Bose jouer preset 2
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_2'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_2'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_2'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_2'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_jouer_3:
+    alias: Bose jouer preset 3
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_3'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_3'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_3'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_3'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_jouer_4:
+    alias: Bose jouer preset 4
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_4'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_4'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_4'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_4'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_jouer_5:
+    alias: Bose jouer preset 5
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_5'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_5'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_5'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_5'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_jouer_6:
+    alias: Bose jouer preset 6
+    icon: mdi:radio
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+        url: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_6'')
+          | int(0))) ~ ''_url'') if (states(''input_text.bose_touche_6'') | int(0))
+          > 0 else '''' }}'
+        nom: '{{ states(''input_text.bose_lib_'' ~ (''%02d'' % (states(''input_text.bose_touche_6'')
+          | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_6'') | int(0))
+          > 0 else '''' }}'
+    - condition: template
+      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
+        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - if:
+      - condition: template
+        value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
+      then:
+      - action: media_player.turn_on
+        target:
+          entity_id: '{{ cible }}'
+      - delay:
+          seconds: 2
+    - action: soundtouchplus.play_url_dlna
+      data:
+        entity_id: '{{ cible }}'
+        url: '{{ url }}'
+        artist: '{{ nom }}'
+        album: Radio
+        track: '{{ nom }}'
+        update_now_playing_status: true
+  bose_sync:
+    alias: Bose synchro
+    icon: mdi:speaker-multiple
+    mode: restart
+    fields:
+      membre:
+        name: Enceinte
+        description: SoundTouch à ajouter ou retirer du groupe de l'enceinte choisie.
+        required: true
+        selector:
+          entity:
+            domain: media_player
+            integration: soundtouchplus
+    sequence:
+    - variables:
+        master: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ master is string and master.startswith(''media_player.'')
+        and membre is string and membre.startswith(''media_player.'') and master !=
+        membre and membre in integration_entities(''soundtouchplus'') and master in
+        integration_entities(''soundtouchplus'') }}'
+    - if:
+      - condition: template
+        value_template: '{{ membre in (state_attr(master, ''group_members'') or [])
+          or master in (state_attr(membre, ''group_members'') or []) }}'
+      then:
+      - if:
+        - condition: template
+          value_template: '{{ membre in (state_attr(master, ''group_members'') or [])
+            }}'
+        then:
+        - action: media_player.unjoin
+          target:
+            entity_id: '{{ membre }}'
+        else:
+        - action: media_player.unjoin
+          target:
+            entity_id: '{{ master }}'
+      else:
+      - action: media_player.join
+        target:
+          entity_id: '{{ master }}'
+        data:
+          group_members: '{{ (((state_attr(master, ''group_members'') or []) | reject(''equalto'',
+            master) | list) + [membre]) | unique | list }}'
+  bose_marche:
+    alias: media_player.toggle
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ cible is string and cible.startswith(''media_player.'') }}'
+    - action: media_player.toggle
+      target:
+        entity_id: '{{ cible }}'
+      data:
+        entity_id: '{{ cible }}'
+  bose_volume_plus:
+    alias: media_player.volume_up
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ cible is string and cible.startswith(''media_player.'') }}'
+    - action: media_player.volume_up
+      target:
+        entity_id: '{{ cible }}'
+      data:
+        entity_id: '{{ cible }}'
+  bose_volume_moins:
+    alias: media_player.volume_down
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ cible is string and cible.startswith(''media_player.'') }}'
+    - action: media_player.volume_down
+      target:
+        entity_id: '{{ cible }}'
+      data:
+        entity_id: '{{ cible }}'
+  bose_aux:
+    alias: soundtouchplus.remote_keypress
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ cible is string and cible.startswith(''media_player.'') }}'
+    - action: soundtouchplus.remote_keypress
+      target:
+        entity_id: '{{ cible }}'
+      data:
+        entity_id: '{{ cible }}'
+        key_id: AUX_INPUT
+        key_state: release
+  bose_lecture:
+    alias: Bose lecture
+    icon: mdi:play-pause
+    mode: restart
+    sequence:
+    - variables:
+        cible: "{% set ns = namespace(rows=[], players=[]) %}\n{% for e in integration_entities('soundtouchplus')
+          if e.startswith('media_player.') %}\n  {% set ns.rows = ns.rows + [(state_attr(e,
+          'friendly_name') | default(e) | lower) ~ '||' ~ e] %}\n{% endfor %}\n{% for
+          row in ns.rows | sort %}\n  {% set ns.players = ns.players + [row.split('||')[1]]
+          %}\n{% endfor %}\n{% set picked = states('input_text.bose_enceinte') %}\n{{
+          picked if picked in ns.players else (ns.players | first | default('')) }}"
+    - condition: template
+      value_template: '{{ cible is string and cible.startswith(''media_player.'') }}'
+    - action: media_player.media_play_pause
+      target:
+        entity_id: '{{ cible }}'
+  bose_assigner:
+    alias: Bose assigner une touche
+    icon: mdi:numeric
+    mode: queued
+    fields:
+      slot:
+        name: Slot
+        required: true
+        selector:
+          text: {}
+      touche:
+        name: Touche
+        required: true
+        selector:
+          text: {}
+    sequence:
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: '{{ (touche | int(0)) in [1,2,3,4,5,6] and  (slot | int(0))
+            >= 1 and (slot | int(0)) <= 12 and (states(''input_text.bose_lib_'' ~ (''%02d''
+            % (slot | int(0))) ~ ''_url'') | trim).startswith(''http://'') and ''.m3u8''
+            not in (states(''input_text.bose_lib_'' ~ (''%02d'' % (slot | int(0))) ~
+            ''_url'') | lower) and (states(''input_text.bose_lib_'' ~ (''%02d'' % (slot
+            | int(0))) ~ ''_nom'') | trim) not in ['''', ''unknown'', ''unavailable'',
+            ''none''] }}'
+        sequence:
+        - variables:
+            previous: '{{ states(''input_text.bose_touche_'' ~ (touche | int)) | trim
+              }}'
+        - repeat:
+            for_each:
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+            sequence:
+            - if:
+              - condition: template
+                value_template: '{{ states(''input_text.bose_touche_'' ~ repeat.item)
+                  == (slot | string) and (repeat.item | string) != (touche | string)
+                  }}'
+              then:
+              - action: input_text.set_value
+                target:
+                  entity_id: '{{ ''input_text.bose_touche_'' ~ repeat.item }}'
+                data:
+                  value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: '{{ ''input_text.bose_touche_'' ~ (touche | int) }}'
+          data:
+            value: '{{ slot | string }}'
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_attente
+          data:
+            value: '{% set ns = namespace(items=[]) %}{% for part in states(''input_text.bose_attente'').split('','')
+              %}{% if (part | trim) not in ['''', ''unknown'', ''unavailable'', ''none'']
+              and not ((part | trim) == (slot | string) or (part | trim) == (previous))
+              %}{% set ns.items = ns.items + [part | trim] %}{% endif %}{% endfor %}{{
+              ns.items | join('','') }}'
+      default:
+      - action: input_text.set_value
+        target:
+          entity_id: input_text.bose_presel_message
+        data:
+          value: Cette station ne peut pas être assignée.
+  bose_vider:
+    alias: Bose vider une touche
+    icon: mdi:eraser
+    mode: queued
+    fields:
+      touche:
+        name: Touche
+        required: true
+        selector:
+          text: {}
+    sequence:
+    - variables:
+        previous: '{{ states(''input_text.bose_touche_'' ~ (touche | int)) | trim }}'
+    - condition: template
+      value_template: '{{ (touche | int(0)) in [1,2,3,4,5,6] }}'
+    - action: input_text.set_value
+      target:
+        entity_id: '{{ ''input_text.bose_touche_'' ~ (touche | int) }}'
+      data:
+        value: ''
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_attente
+      data:
+        value: '{% set ns = namespace(items=[]) %}{% for part in states(''input_text.bose_attente'').split('','')
+          %}{% if (part | trim) not in ['''', ''unknown'', ''unavailable'', ''none'']
+          and not ((part | trim) == (previous)) %}{% set ns.items = ns.items + [part
+          | trim] %}{% endif %}{% endfor %}{{ ns.items | join('','') }}'
+  bose_retirer:
+    alias: Bose retirer une station
+    icon: mdi:delete-outline
+    mode: queued
+    fields:
+      slot:
+        name: Slot
+        required: true
+        selector:
+          text: {}
+    sequence:
+    - condition: template
+      value_template: '{{ (slot | int(0)) >= 1 and (slot | int(0)) <= 12 }}'
+    - repeat:
+        for_each:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        sequence:
+        - if:
+          - condition: template
+            value_template: '{{ states(''input_text.bose_touche_'' ~ repeat.item) ==
+              (slot | string) }}'
+          then:
+          - action: input_text.set_value
+            target:
+              entity_id: '{{ ''input_text.bose_touche_'' ~ repeat.item }}'
+            data:
+              value: ''
+    - action: input_text.set_value
+      target:
+        entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (slot | int)) ~ ''_nom''
+          }}'
+      data:
+        value: ''
+    - action: input_text.set_value
+      target:
+        entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (slot | int)) ~ ''_url''
+          }}'
+      data:
+        value: ''
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_attente
+      data:
+        value: '{% set ns = namespace(items=[]) %}{% for part in states(''input_text.bose_attente'').split('','')
+          %}{% if (part | trim) not in ['''', ''unknown'', ''unavailable'', ''none'']
+          and not ((part | trim) == (slot | string)) %}{% set ns.items = ns.items +
+          [part | trim] %}{% endif %}{% endfor %}{{ ns.items | join('','') }}'
+  bose_ajouter:
+    alias: Bose ajouter une station
+    icon: mdi:plus
+    mode: queued
+    sequence:
+    - variables:
+        nom: '{{ states(''input_text.bose_ajout_nom'') | trim }}'
+        brut: '{{ states(''input_text.bose_ajout_url'') | trim }}'
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: '{{ nom | length < 1 }}'
+        sequence:
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: Indiquez un nom.
+      - conditions:
+        - condition: template
+          value_template: '{{ brut[:8] | lower == ''https://'' }}'
+        sequence:
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: https refusé. Collez une adresse http:// (MP3 ou AAC).
+      - conditions:
+        - condition: template
+          value_template: '{{ (brut[:7] | lower) != ''http://'' or ''.m3u8'' in (brut
+            | lower) or '' '' in brut }}'
+        sequence:
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: Adresse refusée. Seul un flux http:// est gardé.
+      default:
+      - variables:
+          slot: '{% set ns = namespace(empty=0, reuse=0) %}{% set pending = states(''input_text.bose_attente'').split('','')
+            | map(''trim'') | list %}{% for i in range(1, 13) %}{% set nom = states(''input_text.bose_lib_''
+            ~ (''%02d'' % i) ~ ''_nom'') | trim %}{% set blank = nom in ['''', ''unknown'',
+            ''unavailable'', ''none''] %}{% set nsk = namespace(on=false) %}{% for k
+            in [1,2,3,4,5,6] %}{% if states(''input_text.bose_touche_'' ~ k) | trim
+            == (i | string) %}{% set nsk.on = true %}{% endif %}{% endfor %}{% if blank
+            and ns.empty == 0 %}{% set ns.empty = i %}{% elif (not blank) and (not nsk.on)
+            and ((i | string) not in pending) and ns.reuse == 0 %}{% set ns.reuse =
+            i %}{% endif %}{% endfor %}{{ ns.empty if ns.empty else ns.reuse }}'
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: '{{ slot | int(0) == 0 }}'
+          sequence:
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_presel_message
+            data:
+              value: 'Bibliothèque pleine : 12 stations.'
+        default:
+        - action: input_text.set_value
+          target:
+            entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (slot | int)) ~ ''_nom''
+              }}'
+          data:
+            value: '{{ nom }}'
+        - action: input_text.set_value
+          target:
+            entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (slot | int)) ~ ''_url''
+              }}'
+          data:
+            value: '{{ ''http://'' ~ brut[7:] }}'
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_ajout_nom
+          data:
+            value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_ajout_url
+          data:
+            value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_attente
+          data:
+            value: '{% set ns = namespace(items=[]) %}{% for part in states(''input_text.bose_attente'').split('','')
+              %}{% if (part | trim) not in ['''', ''unknown'', ''unavailable'', ''none'']
+              %}{% set ns.items = ns.items + [part | trim] %}{% endif %}{% endfor %}{%
+              if (slot | string) not in ns.items %}{% set ns.items = ns.items + [slot
+              | string] %}{% endif %}{{ ns.items | join('','') }}'
+  bose_rechercher:
+    alias: Bose rechercher une station
+    icon: mdi:magnify
+    mode: queued
+    sequence:
+    - variables:
+        nom: '{{ states(''input_text.bose_recherche'') | trim }}'
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: '{{ nom | length < 1 }}'
+        sequence:
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: Indiquez un nom.
+      default:
+      - action: shell_command.bose_radio_search
+        data:
+          q: '{{ nom | urlencode }}'
+        response_variable: radio
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: '{{ radio.returncode | int(0) != 0 or (radio.stdout | trim)
+              | length < 2 }}'
+          sequence:
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_01_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_01_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_01_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_01_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_02_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_02_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_02_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_02_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_03_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_03_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_03_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_03_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_04_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_04_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_04_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_04_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_05_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_05_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_05_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_05_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_06_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_06_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_06_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_06_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_07_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_07_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_07_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_07_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_08_nom
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_08_meta
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_08_url
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_res_08_ok
+            data:
+              value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_presel_message
+            data:
+              value: Recherche indisponible. Réessayez.
+        default:
+        - variables:
+            payload: '{{ radio.stdout | from_json }}'
+        - choose:
+          - conditions:
+            - condition: template
+              value_template: '{{ not payload.ok }}'
+            sequence:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_presel_message
+              data:
+                value: Recherche indisponible. Réessayez.
+          - conditions:
+            - condition: template
+              value_template: '{{ (payload.rows | length) == 0 }}'
+            sequence:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_ok
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_presel_message
+              data:
+                value: Aucune station pour ce nom.
+          default:
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 1 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_01_nom
+                data:
+                  value: '{{ payload.rows[0][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_01_meta
+                data:
+                  value: '{{ payload.rows[0][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_01_url
+                data:
+                  value: '{{ payload.rows[0][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_01_ok
+                data:
+                  value: '{{ payload.rows[0][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_01_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 2 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_02_nom
+                data:
+                  value: '{{ payload.rows[1][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_02_meta
+                data:
+                  value: '{{ payload.rows[1][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_02_url
+                data:
+                  value: '{{ payload.rows[1][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_02_ok
+                data:
+                  value: '{{ payload.rows[1][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_02_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 3 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_03_nom
+                data:
+                  value: '{{ payload.rows[2][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_03_meta
+                data:
+                  value: '{{ payload.rows[2][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_03_url
+                data:
+                  value: '{{ payload.rows[2][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_03_ok
+                data:
+                  value: '{{ payload.rows[2][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_03_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 4 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_04_nom
+                data:
+                  value: '{{ payload.rows[3][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_04_meta
+                data:
+                  value: '{{ payload.rows[3][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_04_url
+                data:
+                  value: '{{ payload.rows[3][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_04_ok
+                data:
+                  value: '{{ payload.rows[3][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_04_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 5 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_05_nom
+                data:
+                  value: '{{ payload.rows[4][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_05_meta
+                data:
+                  value: '{{ payload.rows[4][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_05_url
+                data:
+                  value: '{{ payload.rows[4][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_05_ok
+                data:
+                  value: '{{ payload.rows[4][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_05_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 6 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_06_nom
+                data:
+                  value: '{{ payload.rows[5][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_06_meta
+                data:
+                  value: '{{ payload.rows[5][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_06_url
+                data:
+                  value: '{{ payload.rows[5][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_06_ok
+                data:
+                  value: '{{ payload.rows[5][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_06_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 7 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_07_nom
+                data:
+                  value: '{{ payload.rows[6][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_07_meta
+                data:
+                  value: '{{ payload.rows[6][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_07_url
+                data:
+                  value: '{{ payload.rows[6][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_07_ok
+                data:
+                  value: '{{ payload.rows[6][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_07_ok
+              data:
+                value: ''
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: '{{ (payload.rows | length) >= 8 and payload.ok }}'
+              sequence:
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_08_nom
+                data:
+                  value: '{{ payload.rows[7][''name''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_08_meta
+                data:
+                  value: '{{ payload.rows[7][''meta''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_08_url
+                data:
+                  value: '{{ payload.rows[7][''url''] }}'
+              - action: input_text.set_value
+                target:
+                  entity_id: input_text.bose_res_08_ok
+                data:
+                  value: '{{ payload.rows[7][''ok''] }}'
+            default:
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_nom
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_meta
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_url
+              data:
+                value: ''
+            - action: input_text.set_value
+              target:
+                entity_id: input_text.bose_res_08_ok
+              data:
+                value: ''
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_presel_message
+            data:
+              value: ''
+  bose_ajouter_resultat:
+    alias: Bose ajouter un résultat
+    icon: mdi:playlist-plus
+    mode: queued
+    fields:
+      slot:
+        name: Slot
+        required: true
+        selector:
+          text: {}
+    sequence:
+    - variables:
+        nom: '{{ states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0))) ~ ''_nom'')
+          | trim }}'
+        url: '{{ states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0))) ~ ''_url'')
+          | trim }}'
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: '{{ not ((slot | int(0)) >= 1 and (slot | int(0)) <= 8 and
+            states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0))) ~ ''_ok'')
+            == ''1'' and (states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0)))
+            ~ ''_url'') | trim).startswith(''http://'') and ''.m3u8'' not in (states(''input_text.bose_res_''
+            ~ (''%02d'' % (slot | int(0))) ~ ''_url'') | lower) and (states(''input_text.bose_res_''
+            ~ (''%02d'' % (slot | int(0))) ~ ''_nom'') | trim) not in ['''', ''unknown'',
+            ''unavailable'', ''none'']) }}'
+        sequence:
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: Ce flux n'est pas en http://.
+      default:
+      - variables:
+          free: '{% set ns = namespace(empty=0, reuse=0) %}{% set pending = states(''input_text.bose_attente'').split('','')
+            | map(''trim'') | list %}{% for i in range(1, 13) %}{% set nom = states(''input_text.bose_lib_''
+            ~ (''%02d'' % i) ~ ''_nom'') | trim %}{% set blank = nom in ['''', ''unknown'',
+            ''unavailable'', ''none''] %}{% set nsk = namespace(on=false) %}{% for k
+            in [1,2,3,4,5,6] %}{% if states(''input_text.bose_touche_'' ~ k) | trim
+            == (i | string) %}{% set nsk.on = true %}{% endif %}{% endfor %}{% if blank
+            and ns.empty == 0 %}{% set ns.empty = i %}{% elif (not blank) and (not nsk.on)
+            and ((i | string) not in pending) and ns.reuse == 0 %}{% set ns.reuse =
+            i %}{% endif %}{% endfor %}{{ ns.empty if ns.empty else ns.reuse }}'
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: '{{ free | int(0) == 0 }}'
+          sequence:
+          - action: input_text.set_value
+            target:
+              entity_id: input_text.bose_presel_message
+            data:
+              value: 'Bibliothèque pleine : 12 stations.'
+        default:
+        - action: input_text.set_value
+          target:
+            entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (free | int)) ~ ''_nom''
+              }}'
+          data:
+            value: '{{ nom }}'
+        - action: input_text.set_value
+          target:
+            entity_id: '{{ ''input_text.bose_lib_'' ~ (''%02d'' % (free | int)) ~ ''_url''
+              }}'
+          data:
+            value: '{{ url }}'
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_presel_message
+          data:
+            value: ''
+        - action: input_text.set_value
+          target:
+            entity_id: input_text.bose_attente
+          data:
+            value: '{% set ns = namespace(items=[]) %}{% for part in states(''input_text.bose_attente'').split('','')
+              %}{% if (part | trim) not in ['''', ''unknown'', ''unavailable'', ''none'']
+              %}{% set ns.items = ns.items + [part | trim] %}{% endif %}{% endfor %}{%
+              if (free | string) not in ns.items %}{% set ns.items = ns.items + [free
+              | string] %}{% endif %}{{ ns.items | join('','') }}'

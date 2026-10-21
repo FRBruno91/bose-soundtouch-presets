@@ -1,0 +1,8 @@
+.env
+ha-token.json
+secrets.yaml
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif

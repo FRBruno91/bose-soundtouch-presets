@@ -1,0 +1,3604 @@
+# Vue Lovelace « TEST BOSE 2 » (chemin : test-bose-2).
+# Collez ce bloc dans la liste views: d'un tableau de bord.
+# Le tiret de la première ligne fait déjà partie de la liste.
+#
+# Le logo Bose n'est pas dans ce fichier : la carte qui l'affichait a été retirée.
+# La photo du clavier non plus. Prenez la vôtre et déposez-la dans
+# /config/www/mon-clavier.png avant d'ouvrir la vue.
+# Les pourcentages des zones cliquables sont conservés. Ils correspondent
+# au cadrage d'origine : si votre photo est cadrée autrement, ajustez top et left.
+- type: sections
+  max_columns: 1
+  title: TEST BOSE 2
+  path: test-bose-2
+  card_mod:
+    style: |
+      :host { background: #000000 !important; }
+  sections:
+  - type: grid
+    card_mod:
+      style: |2
+
+        ha-card {
+          background: #000000 !important;
+          border: none !important;
+          box-shadow: none !important;
+          max-width: 640px;
+          margin: 0 auto !important;
+          padding: 12px 8px 64px !important;
+        }
+    cards:
+    - type: picture-elements
+      # Photo du clavier : prenez la vôtre. Ne réutilisez pas une photo ou un logo Bose.
+      # Déposez le fichier dans /config/www/mon-clavier.png
+      # (le tableau de bord y accède par /local/mon-clavier.png).
+      # Les pourcentages top et left des touches restent ceux du cadrage d'origine.
+      image: /local/mon-clavier.png
+      elements:
+      - type: action-button
+        action: script.bose_marche
+        target: {}
+        title: ' '
+        style:
+          left: 33.02%
+          top: 32.18%
+          width: 6.48%
+          height: 10.89%
+          aspect-ratio: 50 / 43
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_aux
+        target: {}
+        title: ' '
+        style:
+          left: 32.96%
+          top: 43.80%
+          width: 6.48%
+          height: 10.89%
+          aspect-ratio: 50 / 43
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_1
+        target: {}
+        title: ' '
+        style:
+          left: 41.31%
+          top: 31.00%
+          width: 7.64%
+          height: 13.92%
+          aspect-ratio: 59 / 55
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_2
+        target: {}
+        title: ' '
+        style:
+          left: 49.32%
+          top: 30.92%
+          width: 7.77%
+          height: 13.92%
+          aspect-ratio: 60 / 55
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_3
+        target: {}
+        title: ' '
+        style:
+          left: 57.28%
+          top: 30.93%
+          width: 8.16%
+          height: 13.92%
+          aspect-ratio: 63 / 55
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_4
+        target: {}
+        title: ' '
+        style:
+          left: 41.24%
+          top: 44.88%
+          width: 7.64%
+          height: 13.67%
+          aspect-ratio: 59 / 54
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_5
+        target: {}
+        title: ' '
+        style:
+          left: 49.38%
+          top: 44.95%
+          width: 7.77%
+          height: 13.42%
+          aspect-ratio: 60 / 53
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_jouer_6
+        target: {}
+        title: ' '
+        style:
+          left: 57.32%
+          top: 44.89%
+          width: 7.64%
+          height: 13.42%
+          aspect-ratio: 59 / 53
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_volume_plus
+        target: {}
+        title: ' '
+        style:
+          left: 65.70%
+          top: 32.18%
+          width: 6.48%
+          height: 10.89%
+          aspect-ratio: 50 / 43
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      - type: action-button
+        action: script.bose_volume_moins
+        target: {}
+        title: ' '
+        style:
+          left: 65.69%
+          top: 43.85%
+          width: 6.48%
+          height: 10.89%
+          aspect-ratio: 50 / 43
+          display: grid
+          background: rgba(0,0,0,0.02)
+          cursor: pointer
+          pointer-events: auto
+          z-index: "8"
+          color: transparent
+          font-size: 0px
+          overflow: hidden
+        card_mod:
+          style:
+            ha-call-service-button$: |-
+              :host { display: block; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; background: transparent; }
+              ha-progress-button { display: block !important; width: 100%; height: 100%; cursor: pointer; pointer-events: auto; }
+              ha-button { width: 100%; height: 100%; min-height: 100%; cursor: pointer; }
+      card_mod:
+        style: |-
+          ha-card { background: transparent; box-shadow: none; border: none; padding: 0; }
+          .element { z-index: 8; pointer-events: auto; cursor: pointer; }
+          @media (max-width: 600px) {
+            ha-card {
+              transform: scale(1.728);
+              transform-origin: center top;
+              margin-bottom: calc(72.8% * 395 / 772 + 12px);
+            }
+          }
+    - type: markdown
+      content: |-
+        {% set ns = namespace(rows=[], players=[]) %}
+        {% for e in integration_entities('soundtouchplus') if e.startswith('media_player.') %}
+        {% set ns.rows = ns.rows + [(state_attr(e, 'friendly_name') | default(e) | lower) ~ '||' ~ e] %}
+        {% endfor %}
+        {% for row in ns.rows | sort %}
+        {% set ns.players = ns.players + [row.split('||')[1]] %}
+        {% endfor %}
+        {% set picked = states('input_text.bose_enceinte') %}
+        {% set cible = picked if picked in ns.players else (ns.players | first | default('')) %}
+        {% set title = state_attr(cible, 'media_title') or state_attr(cible, 'source') %}
+        {% set quiet = states(cible) in ['off', 'idle', 'standby', 'unavailable', 'unknown', 'none'] or not title %}
+        <div style="text-align:center;margin-top:18px;">
+        <div style="color:#f5f5f5;font-weight:300;font-size:22px;letter-spacing:0.06em;">{{ state_attr(cible, 'friendly_name') | default(cible) }}</div>
+        <div style="color:#9a9a9a;font-weight:300;font-size:14px;letter-spacing:0.04em;margin-top:8px;">{{ 'Arrêt' if quiet else title }}</div>
+        </div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: custom:button-card
+      icon: mdi:play-pause
+      show_name: false
+      show_icon: true
+      hold_action:
+        action: none
+      tap_action:
+        action: call-service
+        service: script.bose_lecture
+      styles:
+        card:
+        - background: none
+        - border: none
+        - box-shadow: none
+        - width: 48px
+        - height: 48px
+        - margin: 4px auto 8px
+        - cursor: pointer
+        icon:
+        - color: '#e8e8e8'
+        - width: 26px
+    - type: markdown
+      content: <div style="height:28px"></div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: custom:auto-entities
+      card:
+        type: grid
+        columns: 2
+        square: false
+        card_mod:
+          style: |
+            ha-card { background: transparent; box-shadow: none; border: none; }
+            #root { gap: 6px 12px !important; }
+      card_param: cards
+      show_empty: false
+      sort:
+        method: friendly_name
+        ignore_case: true
+      filter:
+        include:
+        - domain: media_player
+          integration: soundtouchplus
+          options:
+            type: custom:button-card
+            entity: this.entity_id
+            name: '[[[ const st = states[''this.entity_id'']; return (st && st.attributes.friendly_name) || ''this.entity_id''; ]]]'
+            show_icon: false
+            show_state: false
+            triggers_update: all
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: input_text.set_value
+              service_data:
+                entity_id: input_text.bose_enceinte
+                value: this.entity_id
+            styles:
+              card:
+              - background: transparent
+              - border: none
+              - box-shadow: none
+              - height: auto
+              - min-height: 48px
+              - padding: 12px 4px
+              - overflow: visible
+              - cursor: pointer
+              name:
+              - white-space: normal
+              - overflow: visible
+              - text-overflow: unset
+              - text-align: left
+              - line-height: "1.35"
+              - width: 100%
+              - word-break: break-word
+              - font-weight: "300"
+              - letter-spacing: 0.01em
+              - color: '[[[ const sel = states[''input_text.bose_enceinte''] && states[''input_text.bose_enceinte''].state; return sel === ''this.entity_id'' ? ''#f7f7f7'' : ''#9a9a9a''; ]]]'
+              - font-size: '[[[ const sel = states[''input_text.bose_enceinte''] && states[''input_text.bose_enceinte''].state; return sel === ''this.entity_id'' ? ''17px'' : ''15px''; ]]]'
+              - text-decoration: '[[[ const sel = states[''input_text.bose_enceinte''] && states[''input_text.bose_enceinte''].state; return sel === ''this.entity_id'' ? ''underline'' : ''none''; ]]]'
+              - text-underline-offset: 4px
+            show_label: false
+      else:
+        type: markdown
+        content: Aucune enceinte SoundTouch Plus.
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+      card_mod:
+        style: |
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: markdown
+      content: <div style="text-align:center;margin:36px 0 4px;color:#8a8a8a;font-weight:300;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Écouter aussi sur</div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: custom:auto-entities
+      card:
+        type: grid
+        columns: 2
+        square: false
+        card_mod:
+          style: |
+            ha-card { background: transparent; box-shadow: none; border: none; }
+            #root { gap: 6px 12px !important; }
+      card_param: cards
+      show_empty: false
+      sort:
+        method: friendly_name
+        ignore_case: true
+      filter:
+        include:
+        - domain: media_player
+          integration: soundtouchplus
+          options:
+            type: custom:button-card
+            entity: this.entity_id
+            name: '[[[ const st = states[''this.entity_id'']; return (st && st.attributes.friendly_name) || ''this.entity_id''; ]]]'
+            show_icon: false
+            show_state: false
+            triggers_update: all
+            hold_action:
+              action: none
+            show_label: false
+            tap_action:
+              action: call-service
+              service: script.bose_sync
+              service_data:
+                membre: this.entity_id
+            styles:
+              card:
+              - background: transparent
+              - border: none
+              - box-shadow: none
+              - height: auto
+              - min-height: 48px
+              - padding: 12px 4px
+              - overflow: visible
+              - cursor: pointer
+              name:
+              - white-space: normal
+              - overflow: visible
+              - text-overflow: unset
+              - text-align: left
+              - line-height: "1.35"
+              - width: 100%
+              - word-break: break-word
+              - font-weight: "300"
+              - letter-spacing: 0.01em
+              - color: '[[[ const member = ''this.entity_id''; const master = states[''input_text.bose_enceinte''] && states[''input_text.bose_enceinte''].state; const gm = (master && states[master] && states[master].attributes.group_members) || []; const om = (states[member] && states[member].attributes.group_members) || []; const on = !!(master && states[master] && master !== member && (gm.includes(member) || om.includes(master))); return on ? ''#f7f7f7'' : ''#9a9a9a''; ]]]'
+              - font-size: 15px
+            visibility:
+            - condition: template
+              value_template: '{% set ns = namespace(rows=[], players=[]) %}{% for e in integration_entities(''soundtouchplus'') if e.startswith(''media_player.'') %}{% set ns.rows = ns.rows + [(state_attr(e, ''friendly_name'') | default(e) | lower) ~ ''||'' ~ e] %}{% endfor %}{% for row in ns.rows | sort %}{% set ns.players = ns.players + [row.split(''||'')[1]] %}{% endfor %}{% set picked = states(''input_text.bose_enceinte'') %}{% set master = picked if picked in ns.players else (ns.players | first | default('''')) %}{{ ''this.entity_id'' != master }}'
+      else:
+        type: markdown
+        content: Aucune enceinte SoundTouch Plus.
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+      card_mod:
+        style: |
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: markdown
+      content: <div style="height:36px"></div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_1') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_1') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">1&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "1"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_2') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_2') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">2&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "2"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_3') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_3') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">3&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "3"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_4') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_4') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">4&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "4"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_5') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_5') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">5&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "5"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set slot = states('input_text.bose_touche_6') | int(0) %}
+          {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+          {{ nom | trim not in ['', 'unknown', 'unavailable', 'none'] }}
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set slot = states('input_text.bose_touche_6') | int(0) %}
+            {% set nom = '' if slot < 1 else states('input_text.bose_lib_' ~ ('%02d' % slot) ~ '_nom') %}
+            <div style="color:#f0f0f0;font-weight:300;font-size:18px;letter-spacing:0.03em;padding:8px 0;">6&#160;&#160;&#160;{{ nom }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Vider
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_vider
+            service_data:
+              touche: "6"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: markdown
+      content: <div style="height:28px"></div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: input_text.bose_recherche
+        name: Nom
+      card_mod:
+        style: |2
+
+          ha-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            --ha-card-border-width: 0px;
+            --ha-card-background: transparent;
+            --primary-text-color: #e8e8e8;
+            --secondary-text-color: #8a8a8a;
+            --divider-color: rgba(255,255,255,0.08);
+            --mdc-text-field-fill-color: transparent;
+            --mdc-text-field-ink-color: #f3f3f3;
+            --mdc-text-field-label-ink-color: #9a9a9a;
+            --mdc-theme-primary: #f3f3f3;
+          }
+    - type: custom:button-card
+      name: Rechercher
+      show_icon: false
+      hold_action:
+        action: none
+      tap_action:
+        action: call-service
+        service: script.bose_rechercher
+      styles:
+        card:
+        - background: none
+        - border: none
+        - box-shadow: none
+        - height: 40px
+        - padding: 0 2px
+        - cursor: pointer
+        name:
+        - color: '#8d8d8d'
+        - font-size: 13px
+        - font-weight: "300"
+        - letter-spacing: 0.14em
+        - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_01_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_01_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_01_nom') %}
+            {% set meta = states('input_text.bose_res_01_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "1"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_01_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_01_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_01_nom') %}
+          {% set meta = states('input_text.bose_res_01_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_02_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_02_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_02_nom') %}
+            {% set meta = states('input_text.bose_res_02_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "2"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_02_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_02_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_02_nom') %}
+          {% set meta = states('input_text.bose_res_02_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_03_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_03_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_03_nom') %}
+            {% set meta = states('input_text.bose_res_03_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "3"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_03_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_03_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_03_nom') %}
+          {% set meta = states('input_text.bose_res_03_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_04_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_04_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_04_nom') %}
+            {% set meta = states('input_text.bose_res_04_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "4"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_04_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_04_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_04_nom') %}
+          {% set meta = states('input_text.bose_res_04_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_05_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_05_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_05_nom') %}
+            {% set meta = states('input_text.bose_res_05_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "5"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_05_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_05_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_05_nom') %}
+          {% set meta = states('input_text.bose_res_05_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_06_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_06_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_06_nom') %}
+            {% set meta = states('input_text.bose_res_06_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "6"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_06_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_06_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_06_nom') %}
+          {% set meta = states('input_text.bose_res_06_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_07_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_07_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_07_nom') %}
+            {% set meta = states('input_text.bose_res_07_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "7"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_07_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_07_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_07_nom') %}
+          {% set meta = states('input_text.bose_res_07_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_08_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_08_ok'') == ''1'' }}'
+      card:
+        type: horizontal-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            #root { align-items: center; }
+            #root > :last-child { flex: 0 0 76px; max-width: 76px; }
+        cards:
+        - type: markdown
+          content: |-
+            {% set nom = states('input_text.bose_res_08_nom') %}
+            {% set meta = states('input_text.bose_res_08_meta') %}
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          name: Ajouter
+          show_icon: false
+          hold_action:
+            action: none
+          tap_action:
+            action: call-service
+            service: script.bose_ajouter_resultat
+            service_data:
+              slot: "8"
+          styles:
+            card:
+            - background: none
+            - border: none
+            - box-shadow: none
+            - height: 40px
+            - padding: 0 2px
+            - cursor: pointer
+            name:
+            - color: '#8d8d8d'
+            - font-size: 13px
+            - font-weight: "300"
+            - letter-spacing: 0.14em
+            - text-transform: uppercase
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: '{{ (states(''input_text.bose_res_08_nom'') | trim) not in ['''', ''unknown'', ''unavailable'', ''none''] and states(''input_text.bose_res_08_ok'') != ''1'' }}'
+      card:
+        type: markdown
+        content: |-
+          {% set nom = states('input_text.bose_res_08_nom') %}
+          {% set meta = states('input_text.bose_res_08_meta') %}
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_01_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '1' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('1' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_01_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "1"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_02_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '2' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('2' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_02_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "2"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_03_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '3' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('3' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_03_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "3"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_04_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '4' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('4' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_04_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "4"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_05_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '5' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('5' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_05_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "5"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_06_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '6' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('6' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_06_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "6"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_07_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '7' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('7' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_07_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "7"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_08_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '8' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('8' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_08_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "8"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_09_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '9' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('9' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_09_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "9"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_10_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '10' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('10' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_10_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "10"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_11_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '11' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('11' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_11_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "11"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: |-
+          {% set nom = states('input_text.bose_lib_12_nom') | trim %}
+          {% set pending = states('input_text.bose_attente').split(',') | map('trim') | list %}
+          {% set ns = namespace(on=false) %}
+          {% for k in [1,2,3,4,5,6] %}
+          {% if states('input_text.bose_touche_' ~ k) | trim == '12' %}{% set ns.on = true %}{% endif %}
+          {% endfor %}
+          {{ nom not in ['', 'unknown', 'unavailable', 'none'] and (not ns.on) and ('12' in pending) }}
+      card:
+        type: vertical-stack
+        card_mod:
+          style: |2
+
+            ha-card { background: transparent; box-shadow: none; border: none; }
+        cards:
+        - type: markdown
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_12_nom') }}</div>
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: horizontal-stack
+          card_mod:
+            style: |2
+
+              ha-card { background: transparent; box-shadow: none; border: none; }
+              #root {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 2px 22px !important;
+              }
+          cards:
+          - type: custom:button-card
+            name: "1"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "1"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "2"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "2"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "3"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "3"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "4"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "4"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "5"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "5"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+          - type: custom:button-card
+            name: "6"
+            show_icon: false
+            hold_action:
+              action: none
+            tap_action:
+              action: call-service
+              service: script.bose_assigner
+              service_data:
+                slot: "12"
+                touche: "6"
+            styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 40px
+              - padding: 0 2px
+              - cursor: pointer
+              name:
+              - color: '#cfcfcf'
+              - font-size: 16px
+              - font-weight: "300"
+              - letter-spacing: 0.08em
+              - text-transform: none
+    - type: markdown
+      content: <div style="margin:40px 0 0;color:#8a8a8a;font-weight:300;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;">Adresse</div>
+      card_mod:
+        style: |2
+
+          ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: input_text.bose_ajout_nom
+        name: Nom
+      - entity: input_text.bose_ajout_url
+        name: http
+      card_mod:
+        style: |2
+
+          ha-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            --ha-card-border-width: 0px;
+            --ha-card-background: transparent;
+            --primary-text-color: #e8e8e8;
+            --secondary-text-color: #8a8a8a;
+            --divider-color: rgba(255,255,255,0.08);
+            --mdc-text-field-fill-color: transparent;
+            --mdc-text-field-ink-color: #f3f3f3;
+            --mdc-text-field-label-ink-color: #9a9a9a;
+            --mdc-theme-primary: #f3f3f3;
+          }
+    - type: custom:button-card
+      name: Ajouter
+      show_icon: false
+      hold_action:
+        action: none
+      tap_action:
+        action: call-service
+        service: script.bose_ajouter
+      styles:
+        card:
+        - background: none
+        - border: none
+        - box-shadow: none
+        - height: 40px
+        - padding: 0 2px
+        - cursor: pointer
+        name:
+        - color: '#8d8d8d'
+        - font-size: 13px
+        - font-weight: "300"
+        - letter-spacing: 0.14em
+        - text-transform: uppercase
