@@ -2,11 +2,10 @@
 # Collez ce bloc dans la liste views: d'un tableau de bord.
 # Le tiret de la première ligne fait déjà partie de la liste.
 #
-# Le logo Bose n'est pas dans ce fichier : la carte qui l'affichait a été retirée.
-# La photo du clavier non plus. Prenez la vôtre et déposez-la dans
-# /config/www/mon-clavier.png avant d'ouvrir la vue.
-# Les pourcentages des zones cliquables sont conservés. Ils correspondent
-# au cadrage d'origine : si votre photo est cadrée autrement, ajustez top et left.
+# Clavier : copiez images/clavier-soundtouch.png dans
+# /config/www/clavier-soundtouch.png
+# (le tableau de bord y accède par /local/clavier-soundtouch.png).
+# Le dessin fait 772×395 px. Les touches sont déjà à leur place.
 - type: sections
   max_columns: 1
   title: TEST BOSE 2
@@ -29,11 +28,9 @@
         }
     cards:
     - type: picture-elements
-      # Photo du clavier : prenez la vôtre. Ne réutilisez pas une photo ou un logo Bose.
-      # Déposez le fichier dans /config/www/mon-clavier.png
-      # (le tableau de bord y accède par /local/mon-clavier.png).
-      # Les pourcentages top et left des touches restent ceux du cadrage d'origine.
-      image: /local/mon-clavier.png
+      # Dessin fourni : images/clavier-soundtouch.png
+      # à copier dans /config/www/clavier-soundtouch.png.
+      image: /local/clavier-soundtouch.png
       elements:
       - type: action-button
         action: script.bose_marche

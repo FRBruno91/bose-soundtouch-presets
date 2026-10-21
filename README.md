@@ -38,11 +38,13 @@ La vue a été faite avec Home Assistant 2026.10. Il faut HACS.
 
 5. Outils de développement, YAML, Vérifier la configuration. Si le contrôle est bon, redémarrez Home Assistant. Un simple rechargement des scripts ne suffit pas : le `shell_command` est pris en compte au démarrage.
 
-6. Prenez vous-même une photo de votre clavier. Ne mettez pas une photo ni un logo Bose venus d’ailleurs. Déposez votre fichier ici :
+6. Copiez le fichier `images/clavier-soundtouch.png` dans le dossier de configuration de Home Assistant, sous ce chemin :
 
-   `/config/www/mon-clavier.png`
+   `/config/www/clavier-soundtouch.png`
 
-   Le tableau de bord le voit à l’adresse `/local/mon-clavier.png`. Le YAML pointe déjà vers ce nom. Les zones cliquables sont en pourcentages. Elles correspondent au cadrage d’origine : si votre photo est cadrée autrement, ouvrez `lovelace/test-bose-2.yaml` et ajustez `top` et `left`.
+   Le tableau de bord le voit à l’adresse `/local/clavier-soundtouch.png`. Le YAML pointe déjà vers ce fichier. Rien à aligner : les touches du dessin tombent sur les zones cliquables.
+
+   Une photo personnelle ne correspondra pas, sauf si elle est recadrée exactement comme ce dessin.
 
 7. Ajoutez la vue à un tableau de bord. Sur le tableau de bord : les trois points, Modifier le tableau de bord, encore les trois points, Éditeur de configuration brute. Sous `views:`, collez tout le contenu de `lovelace/test-bose-2.yaml`. Le fichier commence déjà par `- type: sections`. Enregistrez.
 

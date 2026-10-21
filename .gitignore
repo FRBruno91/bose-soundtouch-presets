@@ -1,8 +1,10 @@
 .env
 ha-token.json
 secrets.yaml
-*.png
 *.jpg
 *.jpeg
 *.webp
 *.gif
+bruno-avatar.png
+bose-keypad.png
+bose-logo.png
