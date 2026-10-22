@@ -12,7 +12,15 @@
   path: test-bose-2
   card_mod:
     style: |
-      :host { background: #000000 !important; }
+      :host {
+        background: #000000 !important;
+        --primary-background-color: #000000;
+        --secondary-background-color: #000000;
+        --card-background-color: #000000;
+        --lovelace-background: #000000;
+        --ha-card-background: #000000;
+        min-height: 100vh;
+      }
   sections:
   - type: grid
     card_mod:
@@ -1407,14 +1415,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1432,14 +1442,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1457,14 +1469,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1482,14 +1496,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1507,14 +1523,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1532,14 +1550,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1594,14 +1614,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1619,14 +1641,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1644,14 +1668,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1669,14 +1695,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1694,14 +1722,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1719,14 +1749,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1781,14 +1813,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1806,14 +1840,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1831,14 +1867,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1856,14 +1894,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1881,14 +1921,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1906,14 +1948,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1968,14 +2012,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -1993,14 +2039,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2018,14 +2066,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2043,14 +2093,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2068,14 +2120,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2093,14 +2147,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2155,14 +2211,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2180,14 +2238,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2205,14 +2265,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2230,14 +2292,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2255,14 +2319,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2280,14 +2346,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2342,14 +2410,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2367,14 +2437,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2392,14 +2464,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2417,14 +2491,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2442,14 +2518,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2467,14 +2545,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2529,14 +2609,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2554,14 +2636,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2579,14 +2663,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2604,14 +2690,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2629,14 +2717,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2654,14 +2744,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2716,14 +2808,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2741,14 +2835,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2766,14 +2862,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2791,14 +2889,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2816,14 +2916,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2841,14 +2943,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2903,14 +3007,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2928,14 +3034,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2953,14 +3061,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -2978,14 +3088,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3003,14 +3115,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3028,14 +3142,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3090,14 +3206,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3115,14 +3233,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3140,14 +3260,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3165,14 +3287,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3190,14 +3314,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3215,14 +3341,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3277,14 +3405,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3302,14 +3432,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3327,14 +3459,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3352,14 +3486,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3377,14 +3513,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3402,14 +3540,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3464,14 +3604,16 @@
                 touche: "1"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3489,14 +3631,16 @@
                 touche: "2"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3514,14 +3658,16 @@
                 touche: "3"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3539,14 +3685,16 @@
                 touche: "4"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3564,14 +3712,16 @@
                 touche: "5"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
@@ -3589,14 +3739,16 @@
                 touche: "6"
             styles:
               card:
-              - background: none
-              - border: none
+              - background: '#161616'
+              - border: '1px solid #8a8a8a'
               - box-shadow: none
-              - height: 40px
-              - padding: 0 2px
+              - height: 36px
+              - width: 36px
+              - padding: 0
+              - border-radius: 8px
               - cursor: pointer
               name:
-              - color: '#cfcfcf'
+              - color: '#f5f5f5'
               - font-size: 16px
               - font-weight: "300"
               - letter-spacing: 0.08em
