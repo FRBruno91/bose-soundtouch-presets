@@ -307,17 +307,59 @@
         <div style="text-align:center;margin-top:18px;">
         <div style="color:#f5f5f5;font-weight:300;font-size:22px;letter-spacing:0.06em;">{{ state_attr(cible, 'friendly_name') | default(cible) }}</div>
         <div style="color:#9a9a9a;font-weight:300;font-size:14px;letter-spacing:0.04em;margin-top:8px;">{{ 'Arrêt' if quiet else title }}</div>
-        {% set mode = states('input_text.bose_ecoute') %}
-        {% if not quiet and mode == 'http' %}
-        <div style="margin-top:10px;color:#3dff7a;font-weight:700;font-size:18px;letter-spacing:0.16em;">http</div>
-        {% elif not quiet and mode == 'https' %}
-        <div style="margin-top:10px;color:#ff4b4b;font-weight:700;font-size:18px;letter-spacing:0.16em;">https</div>
-        {% endif %}
         </div>
       card_mod:
         style: |2
 
           ha-card { background: transparent; box-shadow: none; border: none; }
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: "{% set mode = states('input_text.bose_ecoute') %}{% set ns = namespace(rows=[], players=[]) %}{% for e in integration_entities('soundtouchplus') if e.startswith('media_player.') %}{% set ns.rows = ns.rows + [(state_attr(e, 'friendly_name') | default(e) | lower) ~ '||' ~ e] %}{% endfor %}{% for row in ns.rows | sort %}{% set ns.players = ns.players + [row.split('||')[1]] %}{% endfor %}{% set picked = states('input_text.bose_enceinte') %}{% set cible = picked if picked in ns.players else (ns.players | first | default('')) %}{% set quiet = states(cible) in ['off', 'idle', 'standby', 'unavailable', 'unknown', 'none'] %}{{ mode == 'http' and not quiet }}"
+      card:
+        type: custom:button-card
+        name: http
+        show_icon: false
+        tap_action:
+          action: none
+        styles:
+          card:
+          - background: none
+          - border: none
+          - box-shadow: none
+          - height: 32px
+          - width: 90px
+          - margin: 8px auto 0
+          - pointer-events: none
+          name:
+          - color: '#3dff7a'
+          - font-size: 18px
+          - font-weight: "700"
+          - letter-spacing: 0.16em
+    - type: conditional
+      conditions:
+      - condition: template
+        value_template: "{% set mode = states('input_text.bose_ecoute') %}{% set ns = namespace(rows=[], players=[]) %}{% for e in integration_entities('soundtouchplus') if e.startswith('media_player.') %}{% set ns.rows = ns.rows + [(state_attr(e, 'friendly_name') | default(e) | lower) ~ '||' ~ e] %}{% endfor %}{% for row in ns.rows | sort %}{% set ns.players = ns.players + [row.split('||')[1]] %}{% endfor %}{% set picked = states('input_text.bose_enceinte') %}{% set cible = picked if picked in ns.players else (ns.players | first | default('')) %}{% set quiet = states(cible) in ['off', 'idle', 'standby', 'unavailable', 'unknown', 'none'] %}{{ mode == 'https' and not quiet }}"
+      card:
+        type: custom:button-card
+        name: https
+        show_icon: false
+        tap_action:
+          action: none
+        styles:
+          card:
+          - background: none
+          - border: none
+          - box-shadow: none
+          - height: 32px
+          - width: 90px
+          - margin: 8px auto 0
+          - pointer-events: none
+          name:
+          - color: '#ff4b4b'
+          - font-size: 18px
+          - font-weight: "700"
+          - letter-spacing: 0.16em
     - type: custom:button-card
       icon: mdi:play-pause
       show_name: false
@@ -857,11 +899,32 @@
             {% set lien = states('input_text.bose_res_01_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_01_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -898,7 +961,7 @@
           {% set lien = states('input_text.bose_res_01_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -923,11 +986,32 @@
             {% set lien = states('input_text.bose_res_02_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_02_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -964,7 +1048,7 @@
           {% set lien = states('input_text.bose_res_02_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -989,11 +1073,32 @@
             {% set lien = states('input_text.bose_res_03_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_03_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1030,7 +1135,7 @@
           {% set lien = states('input_text.bose_res_03_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1055,11 +1160,32 @@
             {% set lien = states('input_text.bose_res_04_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_04_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1096,7 +1222,7 @@
           {% set lien = states('input_text.bose_res_04_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1121,11 +1247,32 @@
             {% set lien = states('input_text.bose_res_05_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_05_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1162,7 +1309,7 @@
           {% set lien = states('input_text.bose_res_05_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1187,11 +1334,32 @@
             {% set lien = states('input_text.bose_res_06_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_06_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1228,7 +1396,7 @@
           {% set lien = states('input_text.bose_res_06_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1253,11 +1421,32 @@
             {% set lien = states('input_text.bose_res_07_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_07_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1294,7 +1483,7 @@
           {% set lien = states('input_text.bose_res_07_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1319,11 +1508,32 @@
             {% set lien = states('input_text.bose_res_08_url') %}
             {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
             {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
+            <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_res_08_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: custom:button-card
           name: Ajouter
           show_icon: false
@@ -1360,7 +1570,7 @@
           {% set lien = states('input_text.bose_res_08_url') %}
           {% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}
           {% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}
-          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div>{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}<div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
+          <div style="padding:8px 0;"><div style="color:#f2f2f2;font-weight:300;font-size:16px;">{{ nom }}</div><div style="color:#8a8a8a;font-weight:300;font-size:13px;margin-top:3px;">{{ meta }}</div></div><div style="color:#8a8a8a;font-weight:300;font-size:12px;">ne peut pas être ajouté</div>
         card_mod:
           style: |2
 
@@ -1384,11 +1594,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_01_nom') }} {% set lien = states('input_text.bose_lib_01_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_01_nom') }} {% set lien = states('input_text.bose_lib_01_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_01_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -1583,11 +1814,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_02_nom') }} {% set lien = states('input_text.bose_lib_02_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_02_nom') }} {% set lien = states('input_text.bose_lib_02_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_02_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -1782,11 +2034,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_03_nom') }} {% set lien = states('input_text.bose_lib_03_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_03_nom') }} {% set lien = states('input_text.bose_lib_03_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_03_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -1981,11 +2254,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_04_nom') }} {% set lien = states('input_text.bose_lib_04_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_04_nom') }} {% set lien = states('input_text.bose_lib_04_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_04_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -2180,11 +2474,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_05_nom') }} {% set lien = states('input_text.bose_lib_05_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_05_nom') }} {% set lien = states('input_text.bose_lib_05_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_05_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -2379,11 +2694,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_06_nom') }} {% set lien = states('input_text.bose_lib_06_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_06_nom') }} {% set lien = states('input_text.bose_lib_06_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_06_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -2578,11 +2914,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_07_nom') }} {% set lien = states('input_text.bose_lib_07_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_07_nom') }} {% set lien = states('input_text.bose_lib_07_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_07_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -2777,11 +3134,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_08_nom') }} {% set lien = states('input_text.bose_lib_08_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_08_nom') }} {% set lien = states('input_text.bose_lib_08_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_08_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -2976,11 +3354,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_09_nom') }} {% set lien = states('input_text.bose_lib_09_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_09_nom') }} {% set lien = states('input_text.bose_lib_09_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_09_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -3175,11 +3574,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_10_nom') }} {% set lien = states('input_text.bose_lib_10_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_10_nom') }} {% set lien = states('input_text.bose_lib_10_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_10_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -3374,11 +3794,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_11_nom') }} {% set lien = states('input_text.bose_lib_11_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_11_nom') }} {% set lien = states('input_text.bose_lib_11_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_11_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
@@ -3573,11 +4014,32 @@
             ha-card { background: transparent; box-shadow: none; border: none; }
         cards:
         - type: markdown
-          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_12_nom') }} {% set lien = states('input_text.bose_lib_12_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}{% if mode %}<div style="color:{{ couleur }};font-weight:700;font-size:15px;letter-spacing:0.14em;">{{ mode }}</div>{% endif %}</div>
+          content: <div style="color:#f0f0f0;font-weight:300;font-size:16px;letter-spacing:0.03em;padding-top:16px;">{{ states('input_text.bose_lib_12_nom') }} {% set lien = states('input_text.bose_lib_12_url') %}{% set mode = 'https' if lien.startswith('https://') else ('http' if lien.startswith('http://') else '') %}{% set couleur = '#ff4b4b' if mode == 'https' else '#3dff7a' %}</div>
           card_mod:
             style: |2
 
               ha-card { background: transparent; box-shadow: none; border: none; }
+        - type: custom:button-card
+          entity: input_text.bose_lib_12_url
+          show_icon: false
+          tap_action:
+            action: none
+          name: "[[[ const u = (entity && entity.state) || ''; if (u.indexOf('https://') === 0) return 'https'; if (u.indexOf('http://') === 0) return 'http'; return ''; ]]]"
+          styles:
+              card:
+              - background: none
+              - border: none
+              - box-shadow: none
+              - height: 28px
+              - width: 72px
+              - margin: 0 auto
+              - padding: 0
+              - pointer-events: none
+              name:
+              - "color: [[[ const u = (entity && entity.state) || ''; return u.indexOf('https://') === 0 ? '#ff4b4b' : '#3dff7a'; ]]]"
+              - font-size: 16px
+              - font-weight: "700"
+              - letter-spacing: 0.12em
         - type: horizontal-stack
           card_mod:
             style: |2
