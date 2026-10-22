@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Search Radio Browser and print a short JSON list for the Bose presets."""
 import json
+import os
 import sys
 import urllib.parse
 import urllib.request
@@ -48,6 +49,51 @@ def usable(url):
     url = url.strip()
     low = url.lower()
     return low.startswith("http://") and ".m3u8" not in low and " " not in url and len(url) <= 255
+
+
+class StayHttp(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not str(newurl).lower().startswith("http://"):
+            return None
+        return urllib.request.HTTPRedirectHandler.redirect_request(
+            self, req, fp, code, msg, headers, newurl
+        )
+
+
+def http_audio(url):
+    """True when the same path still answers in http with an audio stream."""
+    opener = urllib.request.build_opener(StayHttp)
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Icy-MetaData": "1"})
+    try:
+        with opener.open(req, timeout=3) as resp:
+            if resp.status != 200:
+                return False
+            if str(resp.geturl()).lower().startswith("https://"):
+                return False
+            ctype = (resp.headers.get("Content-Type") or "").lower()
+            if "text/html" in ctype or "json" in ctype or "mpegurl" in ctype:
+                return False
+            if ctype.startswith("audio/") or "mpeg" in ctype or "aac" in ctype or ctype.startswith("application/ogg"):
+                return True
+            chunk = resp.read(16)
+    except Exception:
+        return False
+    if not chunk:
+        return False
+    if chunk.startswith(b"ID3") or chunk[:2] == b"\xff\xfb" or chunk[:2] == b"\xff\xf3" or chunk[:2] == b"\xff\xf1":
+        return True
+    return False
+
+
+def direct_http(url):
+    raw = (url or "").strip()
+    low = raw.lower()
+    if ".m3u8" in low or " " in raw or not low.startswith("https://"):
+        return ""
+    alt = "http://" + raw[8:]
+    if len(alt) > 255 or not http_audio(alt):
+        return ""
+    return alt
 
 
 def pick_url(station):
@@ -106,6 +152,14 @@ def search(query):
     return None
 
 
+def source_url(station):
+    for key in ("url_resolved", "url"):
+        raw = station.get(key)
+        if isinstance(raw, str) and raw.strip():
+            return raw.strip()
+    return ""
+
+
 def rows_from(stations):
     good = []
     bad = []
@@ -114,12 +168,30 @@ def rows_from(stations):
         name = (station.get("name") or "").strip()
         if not name:
             continue
+        raw = source_url(station)
+        low = raw.lower()
         url = pick_url(station)
+        mode = "http"
+        if not url and low.startswith("https://") and ".m3u8" not in low and " " not in raw:
+            alt = direct_http(raw)
+            if alt:
+                url = alt
+                mode = "http"
+            elif len(raw) <= 255:
+                url = raw
+                mode = "https"
         if url:
             if url in seen:
                 continue
             seen.add(url)
-            good.append({"name": name[:120], "meta": meta(station), "url": url, "ok": "1"})
+            good.append(
+                {
+                    "name": name[:120],
+                    "meta": meta(station, mode),
+                    "url": url,
+                    "ok": "1",
+                }
+            )
         else:
             bad.append(
                 {
@@ -132,7 +204,17 @@ def rows_from(stations):
     return (good if good else bad)[:8]
 
 
+def relay_prepare(payload):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import bose_https_relay
+
+    bose_https_relay.register_and_print(payload)
+
+
 def main():
+    if len(sys.argv) == 2 and sys.argv[1].startswith("relay:"):
+        relay_prepare(sys.argv[1][6:])
+        return 0
     if len(sys.argv) != 2 or not sys.argv[1] or any(ch not in SAFE for ch in sys.argv[1]):
         emit({"ok": False, "error": "query", "rows": []})
         return 0
@@ -152,5 +234,7 @@ if __name__ == "__main__":
     try:
         sys.exit(main())
     except Exception:
+        if len(sys.argv) == 2 and str(sys.argv[1]).startswith("relay:"):
+            sys.exit(1)
         emit({"ok": False, "error": "unavailable", "rows": []})
         sys.exit(0)

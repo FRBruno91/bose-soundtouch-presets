@@ -10,6 +10,7 @@
 
 shell_command:
   bose_radio_search: 'python3 /config/bose_radio_search.py "{{ q }}"'
+  bose_relay_prepare: 'python3 /config/bose_https_relay.py --register "{{ url }}"'
 
 input_text:
   bose_enceinte:
@@ -18,6 +19,12 @@ input_text:
     max: 255
     mode: text
     icon: mdi:speaker
+  bose_ecoute:
+    name: Bose ecoute
+    min: 0
+    max: 8
+    mode: text
+    initial: ""
   bose_recherche:
     name: Bose recherche
     min: 0
@@ -400,8 +407,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_1'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -414,7 +434,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -438,8 +458,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_2'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -452,7 +485,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -476,8 +509,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_3'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -490,7 +536,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -514,8 +560,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_4'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -528,7 +587,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -552,8 +611,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_5'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -566,7 +638,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -590,8 +662,21 @@ script:
           | int(0))) ~ ''_nom'') if (states(''input_text.bose_touche_6'') | int(0))
           > 0 else '''' }}'
     - condition: template
-      value_template: '{{ url is string and url.startswith(''http://'') and ''.m3u8''
-        not in url and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+      value_template: '{{ url is string and (url.startswith(''http://'') or url.startswith(''https://''))
+        and ''.m3u8'' not in (url | lower) and url not in [''unknown'', ''unavailable'', ''none'', ''''] }}'
+    - action: shell_command.bose_relay_prepare
+      data:
+        url: '{{ url | base64_encode }}'
+      response_variable: prepared
+    - variables:
+        play_url: '{{ prepared.stdout | trim }}'
+    - condition: template
+      value_template: '{{ play_url.startswith(''http://'') and ''.m3u8'' not in (play_url | lower) }}'
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.bose_ecoute
+      data:
+        value: '{{ ''https'' if url.startswith(''https://'') else ''http'' }}'
     - if:
       - condition: template
         value_template: '{{ states(cible) in [''off'', ''idle'', ''standby''] }}'
@@ -604,7 +689,7 @@ script:
     - action: soundtouchplus.play_url_dlna
       data:
         entity_id: '{{ cible }}'
-        url: '{{ url }}'
+        url: '{{ play_url }}'
         artist: '{{ nom }}'
         album: Radio
         track: '{{ nom }}'
@@ -771,7 +856,7 @@ script:
         - condition: template
           value_template: '{{ (touche | int(0)) in [1,2,3,4,5,6] and  (slot | int(0))
             >= 1 and (slot | int(0)) <= 12 and (states(''input_text.bose_lib_'' ~ (''%02d''
-            % (slot | int(0))) ~ ''_url'') | trim).startswith(''http://'') and ''.m3u8''
+            % (slot | int(0))) ~ ''_url'') | trim).lower().startswith(''http'') and ''.m3u8''
             not in (states(''input_text.bose_lib_'' ~ (''%02d'' % (slot | int(0))) ~
             ''_url'') | lower) and (states(''input_text.bose_lib_'' ~ (''%02d'' % (slot
             | int(0))) ~ ''_nom'') | trim) not in ['''', ''unknown'', ''unavailable'',
@@ -925,23 +1010,14 @@ script:
             value: Indiquez un nom.
       - conditions:
         - condition: template
-          value_template: '{{ brut[:8] | lower == ''https://'' }}'
+          value_template: '{{ not ((brut | lower).startswith(''http://'') or (brut | lower).startswith(''https://''))
+            or ''.m3u8'' in (brut | lower) or '' '' in brut }}'
         sequence:
         - action: input_text.set_value
           target:
             entity_id: input_text.bose_presel_message
           data:
-            value: https refusé. Collez une adresse http:// (MP3 ou AAC).
-      - conditions:
-        - condition: template
-          value_template: '{{ (brut[:7] | lower) != ''http://'' or ''.m3u8'' in (brut
-            | lower) or '' '' in brut }}'
-        sequence:
-        - action: input_text.set_value
-          target:
-            entity_id: input_text.bose_presel_message
-          data:
-            value: Adresse refusée. Seul un flux http:// est gardé.
+            value: Adresse refusée. Collez un flux http:// ou https:// (MP3 ou AAC).
       default:
       - variables:
           slot: '{% set ns = namespace(empty=0, reuse=0) %}{% set pending = states(''input_text.bose_attente'').split('','')
@@ -1931,7 +2007,7 @@ script:
           value_template: '{{ not ((slot | int(0)) >= 1 and (slot | int(0)) <= 8 and
             states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0))) ~ ''_ok'')
             == ''1'' and (states(''input_text.bose_res_'' ~ (''%02d'' % (slot | int(0)))
-            ~ ''_url'') | trim).startswith(''http://'') and ''.m3u8'' not in (states(''input_text.bose_res_''
+            ~ ''_url'') | trim).lower().startswith(''http'') and ''.m3u8'' not in (states(''input_text.bose_res_''
             ~ (''%02d'' % (slot | int(0))) ~ ''_url'') | lower) and (states(''input_text.bose_res_''
             ~ (''%02d'' % (slot | int(0))) ~ ''_nom'') | trim) not in ['''', ''unknown'',
             ''unavailable'', ''none'']) }}'

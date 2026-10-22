@@ -2,7 +2,7 @@
 
 Depuis l’arrêt du cloud Bose, le 6 mai 2026, les boutons de présélection ont cessé de lancer la radio, aussi bien avec l’intégration officielle Bose SoundTouch qu’avec SoundTouch Plus. Cette vue Home Assistant range les stations dans Home Assistant, les cherche par leur nom, les associe à 6 touches d’un clavier, les joue sur l’enceinte SoundTouch choisie, et peut synchroniser les autres enceintes SoundTouch de la même façon que la carte SoundTouch Plus : `media_player.join` et `media_player.unjoin`, par le script `script.bose_sync`.
 
-Seuls les flux HTTP sont utilisés (MP3 ou AAC, par exemple). Le HTTPS et les flux HLS (`.m3u8`) sont refusés.
+Les enceintes SoundTouch lisent le `http`. Quand une radio n’a plus que du `https`, Home Assistant le redonne en `http` sur le réseau de la maison, et nulle part ailleurs. Sous le titre en cours, **http** s’affiche en vert et **https** en rouge. Les flux HLS (`.m3u8`) restent refusés.
 
 « J’ai fait ça dans mon coin, pour mes enceintes. Je le partage comme n’importe quel autre projet. Le développement n’est pas mon métier : s’il y a des bugs, ou si ça ne convient pas à votre installation, je n’en suis pas responsable. Vous l’utilisez librement, sans garantie. »
 
@@ -23,7 +23,7 @@ La vue a été faite avec Home Assistant 2026.10. Il faut HACS.
 
    La carte Lovelace SoundTouch Plus n’est pas utilisée par ce YAML. Vous n’avez pas à l’installer pour cette vue.
 
-3. Copiez le fichier `bose_radio_search.py` à la racine du dossier de configuration de Home Assistant, à côté de `configuration.yaml`. Son nom doit rester `bose_radio_search.py`. Avec l’add-on File editor : ouvrez le dossier de configuration, puis téléversez le fichier. Home Assistant doit pouvoir joindre Internet : c’est lui qui interroge Radio Browser.
+3. Copiez `bose_radio_search.py` et `bose_https_relay.py` à la racine du dossier de configuration de Home Assistant, à côté de `configuration.yaml`. Les noms doivent rester ceux-là. Avec l’add-on File editor : ouvrez le dossier de configuration, puis téléversez les deux fichiers. Home Assistant doit pouvoir joindre Internet : c’est lui qui interroge Radio Browser et, s’il le faut, le flux `https`.
 
 4. Activez les packages s’ils ne le sont pas déjà. Dans `configuration.yaml`, s’il y a déjà un bloc `homeassistant:`, ajoutez seulement la ligne `packages` en dessous, sans créer un second bloc `homeassistant:` :
 
@@ -50,7 +50,7 @@ La vue a été faite avec Home Assistant 2026.10. Il faut HACS.
 
    Le titre est « TEST BOSE 2 » et le chemin est `test-bose-2`. Vous pouvez changer les deux. Le chemin doit être unique dans ce tableau de bord.
 
-8. Ouvrez la vue. Choisissez l’enceinte, cherchez une station par son nom, ou collez une adresse `http://`, puis placez-la sur une des 6 touches. Les touches du clavier lancent la lecture, le volume, l’auxiliaire et la marche. « Écouter aussi sur » ajoute ou retire une autre enceinte SoundTouch Plus du groupe.
+8. Ouvrez la vue. Choisissez l’enceinte, cherchez une station par son nom, ou collez une adresse `http://` ou `https://`, puis placez-la sur une des 6 touches. Vert `http` : l’enceinte lit la radio directement. Rouge `https` : Home Assistant fait le relais. Les touches du clavier lancent la lecture, le volume, l’auxiliaire et la marche. « Écouter aussi sur » ajoute ou retire une autre enceinte SoundTouch Plus du groupe.
 
 Le script `script.bose_retirer` vide un emplacement de la bibliothèque (paramètre `slot`, de 1 à 12) et retire cet emplacement des touches. La vue n’affiche pas de bouton pour lui : il est dans le package si vous voulez l’appeler vous-même.
 
