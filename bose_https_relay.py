@@ -9,6 +9,8 @@ import base64
 import ipaddress
 import os
 import secrets
+import shutil
+import signal
 import socket
 import subprocess
 import sys
@@ -77,16 +79,12 @@ def remember(url):
     return "http://%s:%s/s/%s" % (lan_ip(), PORT, token)
 
 
-def open_upstream(url):
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": UA, "Icy-MetaData": "1"},
-    )
-    return urllib.request.urlopen(req, timeout=12)
+def ffmpeg_bin():
+    return shutil.which("ffmpeg") or "/usr/bin/ffmpeg"
 
 
 class Handler(BaseHTTPRequestHandler):
-    protocol_version = "HTTP/1.1"
+    protocol_version = "HTTP/1.0"
 
     def do_GET(self):
         path = urllib.parse.urlparse(self.path).path
@@ -94,7 +92,7 @@ class Handler(BaseHTTPRequestHandler):
             if not client_is_local(self.client_address[0]):
                 self.send_error(404)
                 return
-            body = b"ok"
+            body = b"mp3"
             self._send(200, "text/plain", body)
             return
         if path.startswith("/s/"):
@@ -136,35 +134,74 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def _proxy(self, upstream):
+        # SoundTouch lit mal l'AAC et le HTTP découpé en blocs : ça accélère le son.
+        # On renvoie un MP3 128 kbit/s, 44100 Hz, sans découpage.
+        cmd = [
+            ffmpeg_bin(),
+            "-nostdin",
+            "-hide_banner",
+            "-loglevel",
+            "error",
+            "-fflags",
+            "nobuffer",
+            "-analyzeduration",
+            "500000",
+            "-probesize",
+            "65536",
+            "-i",
+            upstream,
+            "-vn",
+            "-ac",
+            "2",
+            "-ar",
+            "44100",
+            "-c:a",
+            "libmp3lame",
+            "-b:a",
+            "128k",
+            "-f",
+            "mp3",
+            "-id3v2_version",
+            "0",
+            "-write_xing",
+            "0",
+            "pipe:1",
+        ]
         try:
-            resp = open_upstream(upstream)
+            proc = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+            )
         except Exception:
-            self.send_error(502)
-            return
-        ctype = resp.headers.get("Content-Type", "audio/mpeg")
-        if "text/html" in ctype.lower() or "json" in ctype.lower():
-            resp.close()
             self.send_error(502)
             return
         self.send_response(200)
-        self.send_header("Content-Type", ctype)
-        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Type", "audio/mpeg")
+        self.send_header("Cache-Control", "no-cache, no-store")
         self.send_header("Connection", "close")
-        for key in ("icy-name", "icy-br", "icy-metaint", "ice-audio-info"):
-            value = resp.headers.get(key)
-            if value:
-                self.send_header(key, value)
+        self.send_header("icy-br", "128")
         self.end_headers()
+        rate = 16000.0
+        sent = 0
+        started = time.time()
         try:
             while True:
-                chunk = resp.read(16384)
+                chunk = proc.stdout.read(2048)
                 if not chunk:
                     break
                 self.wfile.write(chunk)
+                self.wfile.flush()
+                sent += len(chunk)
+                delay = (started + (sent / rate)) - time.time()
+                if delay > 0:
+                    time.sleep(delay)
         except Exception:
             pass
         finally:
-            resp.close()
+            if proc.poll() is None:
+                proc.kill()
+            proc.wait()
 
     def log_message(self, fmt, *args):
         return
@@ -178,14 +215,38 @@ def serve():
 def healthy():
     try:
         with urllib.request.urlopen("http://127.0.0.1:%s/health" % PORT, timeout=1) as resp:
-            return resp.status == 200
+            return resp.read() == b"mp3"
     except Exception:
         return False
+
+
+def stop_servers():
+    me = os.getpid()
+    proc = "/proc"
+    if not os.path.isdir(proc):
+        return
+    for name in os.listdir(proc):
+        if not name.isdigit():
+            continue
+        pid = int(name)
+        if pid == me:
+            continue
+        try:
+            cmd = open("/proc/%d/cmdline" % pid, "rb").read().replace(b"\x00", b" ").decode("utf-8", "replace")
+        except Exception:
+            continue
+        if "bose_https_relay.py" in cmd and "--serve" in cmd:
+            try:
+                os.kill(pid, signal.SIGTERM)
+            except Exception:
+                pass
 
 
 def ensure():
     if healthy():
         return
+    stop_servers()
+    time.sleep(0.4)
     subprocess.Popen(
         [sys.executable, os.path.abspath(__file__), "--serve"],
         start_new_session=True,

@@ -2,7 +2,7 @@
 
 Depuis l’arrêt du cloud Bose, le 6 mai 2026, les boutons de présélection ont cessé de lancer la radio, aussi bien avec l’intégration officielle Bose SoundTouch qu’avec SoundTouch Plus. Cette vue Home Assistant range les stations dans Home Assistant, les cherche par leur nom, les associe à 6 touches d’un clavier, les joue sur l’enceinte SoundTouch choisie, et peut synchroniser les autres enceintes SoundTouch de la même façon que la carte SoundTouch Plus : `media_player.join` et `media_player.unjoin`, par le script `script.bose_sync`.
 
-Les enceintes SoundTouch lisent le `http`. Quand une radio n’a plus que du `https`, Home Assistant le redonne en `http` sur le réseau de la maison, et nulle part ailleurs. Sous le titre en cours, **http** s’affiche en vert et **https** en rouge. Les flux HLS (`.m3u8`) restent refusés.
+Les enceintes SoundTouch lisent le `http`. Le relais convertit ce `https` en MP3 128 kbit/s, à vitesse normale, puis le donne à l’enceinte en `http`. Sous le titre en cours, **http** s’affiche en vert et **https** en rouge. Les flux HLS (`.m3u8`) restent refusés.
 
 « J’ai fait ça dans mon coin, pour mes enceintes. Je le partage comme n’importe quel autre projet. Le développement n’est pas mon métier : s’il y a des bugs, ou si ça ne convient pas à votre installation, je n’en suis pas responsable. Vous l’utilisez librement, sans garantie. »
 

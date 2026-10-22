@@ -208,6 +208,11 @@ def relay_prepare(payload):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import bose_https_relay
 
+    if payload == "restart":
+        bose_https_relay.stop_servers()
+        bose_https_relay.ensure()
+        print("ok")
+        return
     bose_https_relay.register_and_print(payload)
 
 
